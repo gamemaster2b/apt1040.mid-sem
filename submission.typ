@@ -177,16 +177,19 @@ header {
 ```css
 /* Skip link for accessibility */
 .skip-link {
+    position: sticky;
+    top: 0;
     background: #ffb81c;
     color: black;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
+    z-index: 100;
 }
 ```
 
-*Rationale:* Skip link provides keyboard navigation accessibility with high contrast yellow background (\#ffb81c) and black text for visibility.
+*Rationale:* Skip link provides keyboard navigation accessibility with high contrast yellow background (\#ffb81c) and black text for visibility. The sticky positioning keeps it accessible at the top of the viewport as users scroll down the page.
 
 #pagebreak()
 
