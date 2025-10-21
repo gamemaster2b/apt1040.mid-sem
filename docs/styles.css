@@ -1,0 +1,273 @@
+/* Basic styling for Campus Events page */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+/* Header styling */
+header {
+    background-color: #2e5cb8;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.tagline {
+    color: #ffb81c;
+    font-size: 18px;
+}
+
+/* Navigation */
+nav {
+    background-color: #f0f0f0;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #cccccc;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.nav-list a {
+    color: #2e5cb8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-list a:hover {
+    text-decoration: underline;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    background: #ffb81c;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Main content area */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #2e5cb8;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: #2e5cb8;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Introduction text */
+.intro-text {
+    font-size: 18px;
+    text-align: center;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* Event cards */
+.event-card {
+    border: 1px solid #cccccc;
+    margin-bottom: 30px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+.event-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    width: 100%;
+    height: auto;
+}
+
+figcaption {
+    background-color: #f5f5f5;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+    font-style: italic;
+}
+
+.event-content {
+    padding: 20px;
+}
+
+.event-title {
+    margin-bottom: 15px;
+}
+
+/* Event details */
+.event-meta {
+    background-color: #f5f5f5;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.event-meta dd {
+    margin: 5px 0;
+    color: #333333;
+}
+
+.event-date time {
+    font-weight: bold;
+    color: #2e5cb8;
+}
+
+.event-description {
+    margin-bottom: 15px;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ffb81c;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #e6a100;
+}
+
+/* About section */
+.about-aside {
+    background-color: #f9f9f9;
+    border-left: 4px solid #ffb81c;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* Footer */
+footer {
+    background-color: #2e5cb8;
+    color: white;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #ffb81c;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ffb81c;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Links */
+a {
+    color: #2e5cb8;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lists */
+ul,
+ol {
+    margin-left: 20px;
+}
+
+/* Logo */
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Simple responsive design */
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+
+    .site-title {
+        font-size: 24px;
+    }
+
+    .nav-list li {
+        display: block;
+        margin: 10px 0;
+    }
+}
