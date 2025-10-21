@@ -49,18 +49,11 @@
 
 = Summary
 
-This submission presents a complete Campus Events Micro-Site that demonstrates proficiency in semantic HTML5, CSS design systems, web accessibility, and responsive design. The project achieves full marks (30/30) across all marking criteria while exceeding accessibility standards.
+This submission presents a complete Campus Events Micro-Site that demonstrates proficiency in semantic HTML5, CSS design systems, web accessibility, and responsive design.
 
-#pagebreak()
+*Live Site:* #link("https://gamemaster2b.github.io/apt1040.mid-sem/")[https://gamemaster2b.github.io/apt1040.mid-sem/]
 
-// Design Note
-= Design Note (150 words)
 
-This micro-site employs semantic HTML5 elements to create a clear document structure and enhance accessibility. The `<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, and `<footer>` elements establish meaningful content hierarchy, while `<figure>` and `<figcaption>` provide context for images. Each event uses `<article>` with descriptive metadata in `<dl>` elements for semantic richness.
-
-The color system uses CSS custom properties for consistency and maintainability. Primary blue (\#2E5CB8) conveys professionalism and trust, while accent gold (\#FFB81C) drives attention to CTAs. Muted text (\#666666) reduces visual noise for secondary information. The typography scale follows modular proportions with carefully chosen line-heights: 1.6 for body text ensures comfortable long-form reading, while 1.2 for headings prevents excessive spacing in larger text.
-
-Image format choices balance quality and performance: JPEG for photographs (tech-summit.jpg, cultural-fest.jpg) provides optimal compression, while SVG for the logo ensures crisp rendering at any scale. The decorative background uses an empty `alt=""` attribute, whereas content images receive descriptive alt text describing relevant visual information.
 
 #pagebreak()
 
@@ -231,6 +224,27 @@ header {
 
 #pagebreak()
 
+== Accessibility Utility Class
+
+```css
+/* Accessibility utility - hides visually but keeps for screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+```
+
+*Usage:* Applied to `<h2>` section headings and `<dt>` labels to provide semantic structure for screen readers while keeping the visual design clean.
+
+#pagebreak()
+
 = Validation Results
 
 == HTML5 Validation
@@ -257,12 +271,12 @@ header {
 *Result:* ✓ PASSED - Valid CSS3
 
 *Validation Points:*
-- All CSS custom properties properly declared in `:root`
 - No syntax errors in CSS rules
 - Valid property-value combinations
-- Modern CSS features used correctly (Grid, Flexbox)
-- Media queries properly formatted
+- Standard CSS3 properties used throughout
+- Media queries properly formatted (\@media max-width: 600px)
 - No browser-specific hacks without fallbacks
+- Proper color values (hex codes, rgba)
 
 == SVG Validation
 
@@ -319,8 +333,8 @@ header {
 #table(
   columns: (auto, auto, auto),
   [*Resource*], [*Status*], [*Size*],
-  [index.html], [200 OK], [~12 KB],
-  [styles.css], [200 OK], [~13 KB],
+  [index.html], [200 OK], [~11 KB],
+  [styles.css], [200 OK], [~4 KB],
   [logo.svg], [200 OK], [758 bytes],
   [tech-summit.jpg], [200 OK], [31 KB],
   [cultural-fest.jpg], [200 OK], [22 KB],
@@ -376,27 +390,26 @@ header {
 4. Verify images have explicit dimensions
 
 *Results:*
-- Cumulative Layout Shift (CLS): 0.00
-- All images have width/height attributes
-- No unexpected layout shifts during load
+- All images have width and height attributes
+- Width="800" height="500" specified for event images
 - Space reserved for images before loading
+- Minimal layout shifts during load
 
-*Conclusion:* ✓ Perfect layout stability
+*Conclusion:* ✓ Good layout stability with explicit dimensions
 
 == Test 5: Lazy Loading Verification ✓
 
 *Procedure:*
 1. DevTools → Network tab
-2.
- Set throttling to "Slow 3G"
+2. Set throttling to "Slow 3G"
 3. Reload page
 4. Scroll slowly and observe image loading
 
 *Results:*
-- Images load only when approaching viewport
+- All event images have loading="lazy" attribute
+- Images load progressively as user scrolls
 - Initial page load faster (doesn't wait for all images)
-- loading="lazy" attribute working correctly
-- Progressive image loading confirmed
+- Lazy loading attribute implemented correctly
 
 *Conclusion:* ✓ Lazy loading functional
 
@@ -411,7 +424,7 @@ header {
 
 *Results:*
 - Tab key focuses skip link ✓
-- Skip link visible on focus (large yellow button) ✓
+- Skip link visible (yellow background, black text) ✓
 - Enter key triggers navigation ✓
 - Focus moves to \#main-content ✓
 
@@ -426,16 +439,17 @@ header {
 
 ```
 prac/
-├── index.html                    # Main HTML5 document (260 lines)
-├── styles.css                    # External stylesheet (513 lines)
-├── assets/
-│   ├── logo.svg                  # SVG logo (758 bytes)
-│   ├── tech-summit.jpg           # Event photo (31 KB)
-│   ├── cultural-fest.jpg         # Event photo (22 KB)
-│   └── career-fair-bg.jpg        # Decorative image (18 KB)
-├── README.md                     # Design note + test plan
+├── docs/
+│   ├── index.html                # Main HTML5 document (237 lines)
+│   ├── styles.css                # External stylesheet (286 lines)
+│   └── assets/
+│       ├── logo.svg              # SVG logo (758 bytes)
+│       ├── tech-summit.jpg       # Event photo (31 KB)
+│       ├── cultural-fest.jpg     # Event photo (22 KB)
+│       └── career-fair-bg.jpg    # Decorative image (18 KB)
 ├── submission.typ                # This Typst document
-└── [documentation files...]
+├── submission.pdf                # Compiled PDF submission
+└── [screenshot files...]
 ```
 
 == File Descriptions
@@ -443,13 +457,12 @@ prac/
 #table(
   columns: (auto, auto, auto),
   [*File*], [*Purpose*], [*Status*],
-  [index.html], [Main HTML page with semantic structure], [✓ Valid],
-  [styles.css], [External stylesheet with design tokens], [✓ Valid],
-  [logo.svg], [SVG logo for site branding], [✓ Valid],
-  [tech-summit.jpg], [Event photo (Tech Summit)], [✓ Optimized],
-  [cultural-fest.jpg], [Event photo (Cultural Festival)], [✓ Optimized],
-  [career-fair-bg.jpg], [Decorative background], [✓ Optimized],
-  [README.md], [Design note + test plan], [✓ Complete],
+  [docs/index.html], [Main HTML page with semantic structure], [✓ Valid],
+  [docs/styles.css], [External stylesheet with modern CSS], [✓ Valid],
+  [docs/assets/logo.svg], [SVG logo for site branding], [✓ Valid],
+  [docs/assets/tech-summit.jpg], [Event photo (Tech Summit)], [✓ Optimized],
+  [docs/assets/cultural-fest.jpg], [Event photo (Cultural Festival)], [✓ Optimized],
+  [docs/assets/career-fair-bg.jpg], [Decorative background], [✓ Optimized],
 )
 
 #pagebreak()
@@ -480,29 +493,19 @@ prac/
 
 *Change:* Significantly increased skip link size and visibility
 
-*Before:*
-- Padding: 8px × 16px (small)
-- Font: 16px, weight 600
-- Height: ~32px
-
-*After:*
-- Padding: 24px × 32px (3× larger)
-- Font: 18px, weight 700
-- Height: ~66px
-- Border: 3px solid black
-- Shadow: prominent
-- Positioned: 16px from edges
+*Current Implementation:*
+- Padding: 10px × 20px
+- Font: default, weight bold
+- Background: Yellow (\#ffb81c)
+- Color: Black
+- Display: inline-block
 
 *Benefits:*
-- Meets WCAG AAA target size (44×44px minimum)
-- Much more visible and usable
-- Touch-friendly on mobile devices
-- Professional appearance
-- Better accessibility for all users
-
-*WCAG Achievement:*
-- Level AA: ✓ Passed
-- Level AAA (Target Size): ✓ Passed (66px > 44px)
+- High contrast (yellow background, black text)
+- Visible and accessible
+- Bold font weight for emphasis
+- Simple, functional design
+- Meets WCAG AA accessibility requirements
 
 == Enhancement 3: Skip Link Position
 
@@ -575,8 +578,8 @@ prac/
 
 == Touch Targets
 
-*Skip Link:* 66px tall × 200px wide (exceeds 44×44px minimum) ✓
-*Navigation Links:* 44px tall minimum ✓
-*Buttons:* 48px tall minimum ✓
+*Skip Link:* Adequate padding (10px × 20px) for accessibility ✓
+*Navigation Links:* Adequate spacing and padding ✓
+*Buttons:* Adequate padding (12px × 24px) ✓
 
-*All interactive elements meet WCAG AAA target size.*
+*All interactive elements are keyboard accessible and have sufficient touch targets.*
